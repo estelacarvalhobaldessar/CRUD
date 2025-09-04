@@ -20,14 +20,14 @@ include_once './include/header.php';
           <tbody>
             <?php
             $sql = "SELECT * FROM categorias";
-            $resultado = mysqli_query($conexao,$slq);
+            $resultado = mysqli_query($conexao,$sql);
 
             while ($dado = mysqli_fetch_assoc($resultado)) {
 
             ?>
             <tr>
               <td><?php echo $dado['CategoriaID']?></td>
-              <td><?php?></td>
+              <td><?php echo $dado['Nome']?></td>
 
               <td>
                 <a href="#" class="btn btn-edit">Editar</a>
