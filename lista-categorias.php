@@ -18,23 +18,24 @@ include_once './include/header.php';
             </tr>
           </thead>
           <tbody>
+          <?php
+            $sql = 'SELECT * FROM categorias';
+            $resultado = mysqli_query($conexao,$sql);
+           
+            while ( $dado = mysqli_fetch_assoc($resultado)) {
+            ?>
             <tr>
-              <td>1</td>
-              <td>Dado A</td>
-
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
+            <td> <?php echo $dado['CategoriaID'];?></td>
+            <td> <?php echo $dado['Nome'];?></td>
+            
+            <td>
+            <a href="salvar-categorias.php?id=" class="btn btn-edit">Editar</a>
+            <a href="./action/categorias.php?&acao=excluir&id=<?php echo $dado['CategoriaID']?>" class="btn btn-delete">Excluir</a>
               </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Dado B</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
+            <?php
+            }
+            ?>
             
           </tbody>
         </table>
