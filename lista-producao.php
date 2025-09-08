@@ -14,8 +14,8 @@ include_once './include/header.php';
             <tr>
               <th>ID</th>
               <th>Produto</th>
-              <th>Quantidade</th>
-              <th>Data</th>
+              <th>Funcionario</th>
+              <th>Cliente</th>
               <th>Ações</th>
             </tr>
           </thead>

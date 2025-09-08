@@ -22,7 +22,7 @@ include_once './include/header.php';
         </thead>
         <tbody>
           <?php
-          $sql = "SELECT * FROM produtos";
+          $sql = 'SELECT p.ProdutoID, p.Nome"NomeProduto", c.Nome"NomeCategoria" , p.Preco FROM produtos AS p INNER JOIN categorias AS c ON p.ProdutoID = c.CategoriaID;';
           $resultado = mysqli_query($conexao,$sql);
 
           while($dado = mysqli_fetch_assoc($resultado)){
@@ -30,8 +30,8 @@ include_once './include/header.php';
           ?>
           <tr>
             <td><?php echo $dado['ProdutoID']?></td>
-            <td><?php echo $dado['Nome']?></td>
-            <td><?php echo $dado['CategoriaID']?></td>
+            <td><?php echo $dado['NomeProduto']?></td>
+            <td><?php echo $dado['NomeCategoria']?></td>
             <td><?php echo $dado['Preco']?></td>
             <td>
               <a href="#" class="btn btn-edit">Editar</a>

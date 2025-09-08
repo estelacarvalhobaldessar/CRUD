@@ -22,16 +22,16 @@ include_once './include/header.php';
         </thead>
         <tbody>
           <?php
-          $sql = "SELECT * FROM funcionarios";
+          $sql = 'SELECT f.FuncionarioID, f.Nome AS "NomeFuncionario", c.Nome"NomeCargo", s.Nome"NomeSetor" FROM funcionarios AS f INNER JOIN cargos AS c ON f.FuncionarioID = c.CargoID INNER JOIN setor AS s ON f.FuncionarioID = s.setorID;';
           $resultado = mysqli_query($conexao,$sql);
 
           while ($dado = mysqli_fetch_assoc($resultado)) {
           ?>
           <tr>
             <td><?php echo $dado['FuncionarioID']?></td>
-            <td><?php echo $dado['Nome']?></td>
-            <td><?php echo $dado['CargoID']?></td>
-            <td><?php echo $dado['SetorID']?></td>
+            <td><?php echo $dado['NomeFuncionario']?></td>
+            <td><?php echo $dado['NomeCargo']?></td>
+            <td><?php echo $dado['NomeSetor']?></td>
             <td>
               <a href="#" class="btn btn-edit">Editar</a>
               <a href="#" class="btn btn-delete">Excluir</a>

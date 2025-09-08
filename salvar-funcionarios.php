@@ -22,12 +22,15 @@ include_once './include/header.php';
           </select>
           <input type="text" placeholder="CPF">
           <input type="text" placeholder="RG">
+          
           <select>
             <option value="">Cargo</option>
           </select>
+
           <select>
             <option value="">Setor</option>
           </select>
+          
           <button type="submit">Salvar</button>
         </form>
       </div>
