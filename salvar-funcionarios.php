@@ -25,12 +25,26 @@ include_once './include/header.php';
           
           <select>
             <option value="">Cargo</option>
+            <?php 
+            // variavel do SQL 
+            $sql = 'SELECT * FROM cargos;';
+            $resultado = mysqli_query($conexao,$sql);
+            while($dado = mysqli_fetch_assoc($resultado)){
+              echo '<option value='.$dado['CargoID'].'>'.$dado['Nome'].'</option>';
+            }
+            ?>
           </select>
 
           <select>
-            <option value="">Setor</option>
+            <?php
+            $sql = 'SELECT * FROM setor;';
+            $resultado = mysqli_query($conexao,$sql);
+            while($dado = mysqli_fetch_assoc($resultado)){
+              echo ' <option value='.$dado['SetorID'].'>'.$dado['Nome'].'</option>';
+            }
+            ?>
           </select>
-          
+         
           <button type="submit">Salvar</button>
         </form>
       </div>
