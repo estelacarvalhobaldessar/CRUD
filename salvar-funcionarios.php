@@ -3,6 +3,16 @@
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
+
+// pega o id
+$id = $_GET['id'];
+
+// montar o sql
+$sql = "SELECT * FROM funcionarios WHERE FuncionarioID = $id;";
+// executar o sql
+$resultado = mysqli_query($conexao, $sql);
+// pegar o dado
+$dado = mysqli_fetch_assoc($resultado);
 ?>
 
   
@@ -11,10 +21,10 @@ include_once './include/header.php';
     <div id="funcionarios" class="tela">
         <form class="crud-form">
           <h2>Cadastro de Funcionários</h2>
-          <input type="text" placeholder="Nome">
-          <input type="date" placeholder="Data de Nascimento">
-          <input type="email" placeholder="Email">
-          <input type="number" placeholder="Salário">
+          <input type="text" placeholder="Nome" value="<?php echo $dado['Nome'];?>">
+          <input type="date" placeholder="Data de Nascimento" value="<?php echo $dado['DataNascimento'];?>">
+          <input type="email" placeholder="Email" value="<?php echo $dado['Email'];?>">
+          <input type="number" placeholder="Salário" value="<?php echo $dado['Salario'];?>">
           <select>
             <option value="">Sexo</option>
             <option value="M">Masculino</option>
@@ -23,7 +33,10 @@ include_once './include/header.php';
           <input type="text" placeholder="CPF">
           <input type="text" placeholder="RG">
           <select>
-            <option value="">Cargo</option>
+            <option value="<?php echo $dado['Cargo'];?>">Cargo</option>
+            <?php
+            $sql 
+            ?>
           </select>
           <select>
             <option value="">Setor</option>
