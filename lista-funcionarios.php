@@ -22,7 +22,7 @@ include_once './include/header.php';
         </thead>
         <tbody>
           <?php
-          $sql = 'SELECT f.FuncionarioID, f.Nome AS "NomeFuncionario", c.Nome"NomeCargo", s.Nome"NomeSetor" FROM funcionarios AS f INNER JOIN cargos AS c ON f.FuncionarioID = c.CargoID INNER JOIN setor AS s ON f.FuncionarioID = s.setorID;';
+          $sql = 'SELECT f.FuncionarioID, f.Nome AS "NomeFuncionario", c.Nome"NomeCargo", s.Nome"NomeSetor" FROM funcionarios AS f INNER JOIN cargos AS c ON f.CargoID = c.CargoID INNER JOIN setor AS s ON f.SetorID = s.SetorID;';
           $resultado = mysqli_query($conexao,$sql);
 
           while ($dado = mysqli_fetch_assoc($resultado)) {
@@ -34,7 +34,7 @@ include_once './include/header.php';
             <td><?php echo $dado['NomeSetor']?></td>
             <td>
               <a href="#" class="btn btn-edit">Editar</a>
-              <a href="#" class="btn btn-delete">Excluir</a>
+              <a href="./action/funcionarios.php?acao=excluir&id=<?php echo $dado['FuncionarioID']?>"  class="btn btn-delete">Excluir</a>
             </td>
           </tr>
           <?php
