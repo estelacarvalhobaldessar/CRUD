@@ -35,7 +35,7 @@ include_once './include/header.php';
             <td><?php echo $dado['Preco']?></td>
             <td>
               <a href="#" class="btn btn-edit">Editar</a>
-              <a href="#" class="btn btn-delete">Excluir</a>
+              <a href="./action/produtos.php?acao=excluir&id=<?php echo $dado['ProdutoID']?>" class="btn btn-delete">Excluir</a>
             </td>
             </tr>
             <?php

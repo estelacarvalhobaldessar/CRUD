@@ -10,7 +10,8 @@ $id = $_GET['id'];
 // validacao
 switch ($acao) {
     case 'excluir':
-        $sql = 'DELETE FROM setores WHERE SetorID='.$id;
+        $sql = 'DELETE FROM setor WHERE SetorID='.$id;
+
         mysqli_query($conexao,$sql);
         header("Location: ../lista-setores.php");
         break;
