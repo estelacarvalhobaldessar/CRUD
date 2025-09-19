@@ -31,7 +31,7 @@ include_once './include/header.php';
               <td><?php echo $dado ['DataProducao'];?></td>
               <td><?php echo $dado ['DataEntrega'];?></td>
               <td>
-              <a href="salvar-producao.php?id=" class="btn btn-edit">Editar</a>
+              <a href="salvar-producao.php?id=<?php echo $dado['ProducaoID']?>" class="btn btn-edit">Editar</a>
               <a href="./action/producao.php?&acao=excluir&id=<?php echo $dado['ProducaoID']?>" class="btn btn-delete">Excluir</a>
               </td>
             </tr>
