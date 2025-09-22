@@ -23,22 +23,35 @@ $dado = mysqli_fetch_assoc($resultado);
           <select>
             <option value="">Funcionário</option>
             <?php
-            $sql = "SELECT * FROM funcionarios ORDER BY Nome;";
+            $sql = "SELECT FuncionarioID,Nome FROM funcionarios ORDER BY Nome;";
             $resultado = mysqli_query($conexao, $sql);
-            while ( $cargo = mysqli_fetch_assoc($resultado)){
+            while ( $funcionario = mysqli_fetch_assoc($resultado)){
               $selecionado = '';
-              if ( $dado['FuncionarioID'] == $cargo['CargoID']){
+              if ( $dado['FuncionarioID'] == $funcionario['FuncionarioID']){
                 $selecionado = 'selected';
               }
-              echo "<option ".$selecionado." value='".$cargo['CargoID']."'>".$cargo['Nome']."</option>";
+              echo "<option ".$selecionado." value='".$funcionario['FuncionarioID']."'>".$funcionario['Nome']."</option>";
             }
             ?>
           </select>
           </select>
           <select>
             <option value="">Produto</option>
+            <?php
+            $sql = "SELECT ProdutoID,Nome FROM produtos ORDER BY Nome;";
+            $resultado = mysqli_query($conexao, $sql);
+            while ( $produto = mysqli_fetch_assoc($resultado)){
+              $selecionado = '';
+              if ( $dado['ProdutoID'] == $produto['ProdutoID']){
+                $selecionado = 'selected';
+              }
+              echo "<option ".$selecionado." value='".$produto['ProdutoID']."'>".$produto['Nome']."</option>";
+            }
+            ?>
+          </select>
           </select>
           <label for="">Data da entrega</label>
+          
           <input type="date" placeholder="Data da Entrega">
           <input type="number" placeholder="Quantidade Produzida">
           <button type="submit">Salvar</button>
