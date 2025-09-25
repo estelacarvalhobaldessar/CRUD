@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
         <form class="crud-form" method="post" action="">
           <h2>Cadastro de Categorias</h2>
           <input type="text" placeholder="Nome da Categoria" value="<?php echo $nome;?>">
-          <textarea placeholder="Descrição" value="<?php echo $descricao;?>"></textarea>
+          <textarea placeholder="Descrição"><?php echo $descricao;?></textarea>
           <button type="submit">Salvar</button>
         </form>
       </div>

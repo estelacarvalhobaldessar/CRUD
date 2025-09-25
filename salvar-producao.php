@@ -3,6 +3,9 @@
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
+
+
+
 ?>
   <main>
 
@@ -35,9 +38,15 @@ include_once './include/header.php';
             }
             ?>
         </select>
-          <label for="">Data da entrega</label>
+
+        <label for="">Data da Produção</label>
+          <input type="date" placeholder="Data da Produção">
+
+        
+        <label for="">Data da entrega</label>
           <input type="date" placeholder="Data da Entrega">
-          <input type="number" placeholder="Quantidade Produzida">
+
+
           <button type="submit">Salvar</button>
         </form>
       </div>
