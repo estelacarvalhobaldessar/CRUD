@@ -12,7 +12,9 @@ include_once './include/header.php';
     <div id="producao" class="tela">
         <form class="crud-form" method="post" action="">
           <h2>Cadastro de Produção de Produtos</h2>
-          <select><?php
+          <select>
+            <option value="">- Selecione -</option>
+            <?php
           $sql = 'SELECT * FROM funcionarios;';
           $resultado = mysqli_query($conexao,$sql);
           while($dado = mysqli_fetch_assoc($resultado)){
@@ -21,6 +23,7 @@ include_once './include/header.php';
           ?>
           </select>
           <select>
+            <option value="">- Selecione -</option>
             <?php
             $sql = 'SELECT * FROM produtos;';
             $resultado = mysqli_query($conexao,$sql);
@@ -30,6 +33,7 @@ include_once './include/header.php';
             ?>
           </select>
           <select>
+            <option value="">- Selecione -</option>
             <?php
             $sql = 'SELECT * FROM clientes;';
             $resultado= mysqli_query($conexao,$sql);
